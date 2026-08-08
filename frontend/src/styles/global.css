@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { background: #f8fafc; }
+  body { margin: 0; min-width: 320px; background: #f8fafc; color: #182230; font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  button, input { font: inherit; }
+  :focus-visible { outline: 3px solid rgba(38, 116, 217, .3); outline-offset: 2px; }
+}
+
+@layer components {
+  .page-shell { @apply mx-auto w-full max-w-7xl px-5 py-12 sm:py-14 lg:px-8; }
+  .card { @apply rounded-2xl border border-slate-200 bg-white shadow-card; }
+  .button-primary { @apply inline-flex items-center gap-2 rounded-lg bg-brand-600 px-4 py-2.5 font-semibold text-white transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-65; }
+  .button-secondary { @apply inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50; }
+  .input-field { @apply w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-ink shadow-sm transition placeholder:text-slate-400 hover:border-slate-400 focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-50; }
+  .eyebrow { @apply text-xs font-bold uppercase tracking-[.14em] text-brand-700; }
+}
+
+.hero-orb { background: radial-gradient(circle at center, rgba(217,234,255,.72), rgba(237,245,255,.2) 54%, transparent 72%); }

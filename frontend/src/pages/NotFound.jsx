@@ -1,0 +1,3 @@
+import { ArrowLeft, SearchX } from 'lucide-react'
+import { Link } from 'react-router-dom'
+export default function NotFound() { return <main className="page-shell"><section className="mx-auto grid min-h-[52vh] max-w-xl place-items-center text-center"><div><span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-slate-100 text-slate-600"><SearchX size={25} /></span><p className="mt-6 text-sm font-semibold uppercase tracking-[.16em] text-brand-600">404 error</p><h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink">Page not found</h1><p className="mt-3 text-slate-600">The page you’re looking for doesn’t exist or has moved.</p><Link to="/" className="button-primary mt-7"> <ArrowLeft size={17} />Back to home</Link></div></section></main> }
