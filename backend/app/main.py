@@ -29,3 +29,7 @@ async def root():
     return {
         "message": "Welcome to EduPredict AI Backend 🚀"
     }
+    
+@app.get("/healthz")
+async def healthz():
+    return {"status": "ok"}
