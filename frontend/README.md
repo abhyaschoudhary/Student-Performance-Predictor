@@ -9,6 +9,6 @@ npm install
 npm run dev
 ```
 
-The frontend uses `http://127.0.0.1:8000` by default. To point it at another compatible API, create a `.env` file from `.env.example` and set `VITE_API_URL`.
+The frontend uses `http://127.0.0.1:8000` by default. To point it at another compatible API, create a `.env` file from `.env.example` and set `VITE_API_BASE_URL`.
 
 The FastAPI backend must be running separately for prediction requests to succeed.

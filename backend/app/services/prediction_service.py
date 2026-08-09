@@ -2,6 +2,7 @@ import joblib
 import pandas as pd
 
 from app.utils.grades import get_grade, get_performance
+from app.utils.confidence import calculate_confidence
 
 
 class PredictionService:
@@ -24,10 +25,11 @@ class PredictionService:
         prediction = round(float(prediction), 2)
 
         return {
-            "predicted_score": prediction,
-            "grade": get_grade(prediction),
-            "performance": get_performance(prediction)
-        }
+    "predicted_score": prediction,
+    "grade": get_grade(prediction),
+    "performance": get_performance(prediction),
+    "confidence_score": calculate_confidence(prediction)
+}
 
 
 prediction_service = PredictionService()

@@ -1,29 +1,22 @@
-import os
-import joblib
+import pandas as pd
 
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
-from app.ml.preprocess import load_data, split_features_target
+from app.ml.preprocess import load_data
 
 
 DATASET_PATH = "data/StudentPerformanceFactors.csv"
 
-MODEL_PATH = "models/student_model_v2.pkl"
 
+def evaluate_model(features, name):
 
-def train():
-
-    # Load cleaned dataset
     df = load_data(DATASET_PATH)
 
-    print(f"Clean dataset rows: {len(df)}")
+    X = df[features]
+    y = df["Exam_Score"]
 
-    # Split features and target
-    X, y = split_features_target(df)
-
-    # Train/test split
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,
@@ -31,33 +24,42 @@ def train():
         random_state=42
     )
 
-    # Create model
     model = LinearRegression()
 
-    # Train
     model.fit(X_train, y_train)
 
-    # Predict test data
     y_pred = model.predict(X_test)
 
-    # Evaluation
     mae = mean_absolute_error(y_test, y_pred)
     rmse = mean_squared_error(y_test, y_pred) ** 0.5
     r2 = r2_score(y_test, y_pred)
 
-    print("\n===== MODEL EVALUATION =====")
+    print(f"\n===== {name} =====")
+    print(f"Features: {features}")
     print(f"MAE  : {mae:.2f}")
     print(f"RMSE : {rmse:.2f}")
     print(f"R²   : {r2:.4f}")
 
-    # Save new model separately
-    os.makedirs("models", exist_ok=True)
 
-    joblib.dump(model, MODEL_PATH)
+# Model 1: 5 features
+features_5 = [
+    "Hours_Studied",
+    "Attendance",
+    "Previous_Scores",
+    "Sleep_Hours",
+    "Tutoring_Sessions"
+]
 
-    print("\n✅ New model saved successfully!")
-    print(f"Model: {MODEL_PATH}")
+
+# Model 2: 4 features
+features_4 = [
+    "Hours_Studied",
+    "Attendance",
+    "Previous_Scores",
+    "Sleep_Hours"
+]
 
 
-if __name__ == "__main__":
-    train()
+evaluate_model(features_5, "5-FEATURE MODEL")
+
+evaluate_model(features_4, "4-FEATURE MODEL")
