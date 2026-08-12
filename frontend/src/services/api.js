@@ -4,10 +4,9 @@ export const TOKEN_KEY = 'edupredict-access-token'
 export const USER_KEY = 'edupredict-user'
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000',
+  baseURL: 'https://student-performance-predictor-vkgq.onrender.com',
   timeout: 15000,
 })
-
 export const getToken = () => localStorage.getItem(TOKEN_KEY)
 
 export function clearSession() {
