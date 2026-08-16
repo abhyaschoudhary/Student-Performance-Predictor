@@ -20,7 +20,7 @@ app.add_middleware(
     allow_origins=[
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://student-performance-predictor-inky.vercel.app",
+    "https://student-performance-predictor-abhyaschoudhary-5391s-projects.vercel.app",
 ],
     allow_credentials=True,
     allow_methods=["*"],
