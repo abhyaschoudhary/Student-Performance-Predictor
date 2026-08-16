@@ -4,7 +4,12 @@ export const TOKEN_KEY = 'edupredict-access-token'
 export const USER_KEY = 'edupredict-user'
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000',
+  baseURL:
+    import.meta.env.VITE_API_BASE_URL ||
+    import.meta.env.VITE_API_URL ||
+    (import.meta.env.PROD
+      ? 'https://student-performance-predictor-dszy.onrender.com'
+      : 'http://127.0.0.1:8000'),
   timeout: 15000,
 })
 export const getToken = () => localStorage.getItem(TOKEN_KEY)
