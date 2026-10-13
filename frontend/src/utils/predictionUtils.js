@@ -21,9 +21,9 @@ export function validatePrediction(values) {
 }
 
 export function getScoreState(score) {
-  if (score >= 90) return { label: 'Excellent', color: '#15803d', soft: 'bg-emerald-50 text-emerald-800 border-emerald-200' }
-  if (score >= 80) return { label: 'Good', color: '#2563eb', soft: 'bg-blue-50 text-blue-800 border-blue-200' }
-  if (score >= 70) return { label: 'Average', color: '#b7791f', soft: 'bg-amber-50 text-amber-800 border-amber-200' }
-  if (score >= 60) return { label: 'Needs Improvement', color: '#c2410c', soft: 'bg-orange-50 text-orange-800 border-orange-200' }
-  return { label: 'At Risk', color: '#b91c1c', soft: 'bg-red-50 text-red-800 border-red-200' }
+  if (score >= 90) return { label: 'Excellent', color: '#54763c', soft: 'bg-emerald-50 text-emerald-800 border-emerald-200' }
+  if (score >= 80) return { label: 'Good', color: '#54763c', soft: 'bg-emerald-50 text-emerald-800 border-emerald-200' }
+  if (score >= 70) return { label: 'Average', color: '#a56a21', soft: 'bg-amber-50 text-amber-800 border-amber-200' }
+  if (score >= 60) return { label: 'Needs Improvement', color: '#a56a21', soft: 'bg-amber-50 text-amber-800 border-amber-200' }
+  return { label: 'At Risk', color: '#9a332b', soft: 'bg-red-50 text-red-800 border-red-200' }
 }

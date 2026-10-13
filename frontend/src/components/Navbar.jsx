@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext'
 
 const publicLinks = [{ to: '/', label: 'Home' }, { to: '/about', label: 'About' }]
 const privateLinks = [{ to: '/predict', label: 'Predict' }, { to: '/dashboard', label: 'Dashboard' }]
-const navClass = ({ isActive }) => `text-sm font-medium transition-colors ${isActive ? 'text-brand-700' : 'text-slate-600 hover:text-ink'}`
+const navClass = ({ isActive }) => `nav-link text-sm font-medium ${isActive ? 'is-active' : ''}`
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
